@@ -89,7 +89,7 @@ author:
   googlescholar    : "https://scholar.google.com/citations?user=TMH4gJYAAAAJ&hl=en"
   email            :
   researchgate     :  #"https://www.researchgate.net/profile/Morteza_Pourreza_Shahri"
-  uri              :
+  uri              : "https://dblp.org/pid/215/5534.html"
   bitbucket        :
   codepen          :
   dribbble         :
@@ -103,7 +103,7 @@ author:
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         :
-  orcid            : #"http://orcid.org/yourorcidurl"
+  orcid            : "https://orcid.org/0000-0002-2437-9153"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
