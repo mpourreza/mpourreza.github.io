@@ -1,16 +1,15 @@
 ---
-title: "Providing FAQ lists based on ontology"
+title: "Paper Title Number 1"
 collection: publications
-permalink: /publication/2016-05-10-pourreza-providing-2016
-excerpt: 'Researchers have been fascinated in FAQ (Frequently Asked Questions) management systems in recent years...'
-date: 2016-05-10
-venue: '24th IEEE International Conference on Electrical Engineering (ICEE)'
-paperurl: 'https://ieeexplore.ieee.org/abstract/document/7585537'
-citation: 'M. Pourreza Shahri, M. Kahani, and H. Ekbia, Providing FAQ lists based on ontology, 24th IEEE Iranian Conference on Electrical Engineering (ICEE), Shiraz, Iran, 2016'
+permalink: /publication/2009-10-01-paper-title-number-1
+excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
+date: 2009-10-01
+venue: 'Journal 1'
+paperurl: 'http://academicpages.github.io/files/paper1.pdf'
+citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
 ---
+This paper is about the number 1. The number 2 is left for future work.
 
-<a href='https://ieeexplore.ieee.org/abstract/document/7585537'>Download paper here</a>
+[Download paper here](http://academicpages.github.io/files/paper1.pdf)
 
-Researchers have been fascinated in FAQ (Frequently Asked Questions) management systems in recent years...
-
-Recommended citation: M. Pourreza Shahri, M. Kahani, and H. Ekbia, Providing FAQ lists based on ontology", 24th IEEE Iranian Conference on Electrical Engineering (ICEE), Shiraz, Iran, 2016"
+Recommended citation: Your Name, You. (2009). "Paper Title Number 1." <i>Journal 1</i>. 1(1).
