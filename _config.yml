@@ -88,7 +88,7 @@ author:
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=TMH4gJYAAAAJ&hl=en"
   email            :
-  researchgate     :  "https://www.researchgate.net/profile/Morteza_Pourreza_Shahri"
+  researchgate     :  #"https://www.researchgate.net/profile/Morteza_Pourreza_Shahri"
   uri              :
   bitbucket        :
   codepen          :
