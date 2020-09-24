@@ -6,7 +6,7 @@ excerpt: 'Researchers have been fascinated in FAQ (Frequently Asked Questions) m
 date: 2016-05-10
 venue: '24th IEEE International Conference on Electrical Engineering (ICEE)'
 paperurl: 'https://ieeexplore.ieee.org/abstract/document/7585537'
-citation: 'M. Pourreza Shahri, M. Kahani, and H. Ekbia, Providing FAQ lists based on ontology&quot;, 24th IEEE Iranian Conference on Electrical Engineering (ICEE), Shiraz, Iran, 2016&quot;'
+citation: 'M. Pourreza Shahri, M. Kahani, and H. Ekbia, Providing FAQ lists based on ontology, 24th IEEE Iranian Conference on Electrical Engineering (ICEE), Shiraz, Iran, 2016'
 ---
 
 <a href='https://ieeexplore.ieee.org/abstract/document/7585537'>Download paper here</a>
