@@ -13,4 +13,4 @@ citation: 'M. Pourreza Shahri, M. Srinivasan, G. Reynolds, D. Bimczok, I. Kahand
 
 Identifying protein-phenotype relations is of paramount importance for biomedical applications such as uncovering rare and complex diseases...
 
-Recommended citation: M. Pourreza Shahri and I. Kahanda, ProPheno 1.0: An online dataset for accelerating the complete characterization of the human protein-phenotype landscape in biomedical literature", 14th IEEE International Conference on Semantic Computing, 2020."
+Recommended citation: M. Pourreza Shahriand I. Kahanda, ProPheno 1.0: An online dataset for accelerating the complete characterization of the human protein-phenotype landscape in biomedical literature", 14th IEEE International Conference on Semantic Computing, 2020."
