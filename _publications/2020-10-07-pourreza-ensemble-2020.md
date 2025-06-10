@@ -1,0 +1,16 @@
+---
+title: "An Ensemble Approach for Automatic Structuring of Radiology Reports"
+collection: publications
+permalink: /publication/2020-10-07-pourreza-ensemble-2020
+excerpt: 'The biomedical literature provides an extensive source of information in the form of unstructured text. One of the most important types of information hidden in biomedical literature is the relations between human proteins and their phenotypes, which, due to the exponential growth of publications, can remain hidden. This provides a range of opportunities for the development of computational methods to extract the biomedical relations from the unstructured text. In our previous work, we developed a supervised machine learning approach, called PPPred, for classifying the validity of a given sentence-level human protein-phenotype co-mention. In this work, we propose DeepPPPred, an ensemble classifier composed of PPPred and three deep neural network models: RNN, CNN, and BERT. Using an expanded gold-standard co-mention dataset, we demonstrate that the proposed ensemble method significantly outperforms its constituent components and provides a new state-of-the-art performance on classifying the co-mentions of human proteins and phenotype terms.'
+date: 2020-10-07
+venue: 'ArXiv Preprints'
+paperurl: 'https://arxiv.org/abs/2010.02256'
+citation: 'M. Pourreza Shahri, A. Tahmasebi, B. Ye, H. Zhu, J. Aslam, T. Ferris, An Ensemble Approach for Automatic Structuring of Radiology Reports, ArXiv, 2020.'
+---
+
+<a href='https://arxiv.org/abs/2010.02256'>Download paper here</a>
+
+Automatic structuring of electronic medical records is of high demand for clinical workflow solutions to facilitate extraction, storage, and querying of patient care information. However, developing a scalable solution is extremely challenging, specifically for radiology reports, as most healthcare institutes use either no template or department/institute specific templates. Moreover, radiologists' reporting style varies from one to another as sentences are telegraphic and do not follow general English grammar rules. We present an ensemble method that consolidates the predictions of three models, capturing various attributes of textual information for automatic labeling of sentences with section labels. These three models are: 1) Focus Sentence model, capturing context of the target sentence; 2) Surrounding Context model, capturing the neighboring context of the target sentence; and finally, 3) Formatting/Layout model, aimed at learning report formatting cues. We utilize Bi-directional LSTMs, followed by sentence encoders, to acquire the context. Furthermore, we define several features that incorporate the structure of reports. We compare our proposed approach against multiple baselines and state-of-the-art approaches on a proprietary dataset as well as 100 manually annotated radiology notes from the MIMIC-III dataset, which we are making publicly available. Our proposed approach significantly outperforms other approaches by achieving 97.1% accuracy.
+
+Recommended citation: 'M. Pourreza Shahri, A. Tahmasebi, B. Ye, H. Zhu, J. Aslam, T. Ferris, An Ensemble Approach for Automatic Structuring of Radiology Reports, ArXiv, 2020.'
