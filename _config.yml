@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "iMorteza - Official Webpage of Dr. Morteza Pourreza"
+title                    : "iMorteza - Official Webpage of Morteza Pourreza"
 title_separator          : "-"
 name                     : &name "Morteza Pourreza"
 description              : &description "personal description"
