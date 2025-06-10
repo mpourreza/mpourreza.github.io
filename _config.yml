@@ -9,11 +9,11 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "iMorteza - Morteza Pourreza"
+title                    : "iMorteza - Official Webpage of Dr. Morteza Pourreza"
 title_separator          : "-"
 name                     : &name "Morteza Pourreza"
 description              : &description "personal description"
-url                      : https://mpourreza.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+url                      : https://www.iMorteza.com # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "mpourreza.github.io"
 
