@@ -18,29 +18,29 @@ tags:
 
 To understand the math, we look at how a word "asks" for information from the rest of the sentence. We represent every word using three learned vectors:
 
-* **Query ($Q$) 🔍:** This represents "What am I looking for?"
-* **Key ($K$) 🔑:** This represents "What do I contain?"
-* **Value ($V$) 📦:** This represents "What information do I provide if I'm a match?"
+* **Query ($$Q$$) 🔍:** This represents "What am I looking for?"
+* **Key ($$K$$) 🔑:** This represents "What do I contain?"
+* **Value ($$V$$) 📦:** This represents "What information do I provide if I'm a match?"
 
 ### The Scaled Dot-Product Formula
 The model calculates the relationship using this equation:
 
 $$Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
-1.  **Similarity ($QK^T$) 📐:** We take the dot product of the Query of one word and the Keys of all other words. A higher score means the words are more mathematically "similar" or relevant to each other.
-2.  **Scaling ($\sqrt{d_k}$) ⚖️:** We divide by the square root of the dimension of the keys ($d_k$). This prevents the scores from getting so large that the gradients vanish during training.
+1.  **Similarity ($$QK^T$$) 📐:** We take the dot product of the Query of one word and the Keys of all other words. A higher score means the words are more mathematically "similar" or relevant to each other.
+2.  **Scaling ($$\sqrt{d_k}$$) ⚖️:** We divide by the square root of the dimension of the keys ($$d_k$$). This prevents the scores from getting so large that the gradients vanish during training.
 3.  **Softmax 📊:** This turns the scores into probabilities between 0 and 1 that sum to 100%. This decides exactly how much "weight" to give to each word in the sequence.
-4.  **Weighting ($V$) 🏗️:** We multiply these percentages by the Value vectors. The final output is a weighted sum—a new version of the word that has "absorbed" context from its neighbors.
+4.  **Weighting ($$V$$) 🏗️:** We multiply these percentages by the Value vectors. The final output is a weighted sum—a new version of the word that has "absorbed" context from its neighbors.
 
 In **Multi-Head Attention**, we perform this process multiple times in parallel by splitting the original large vectors into smaller "heads." Each head uses its own learned weight matrices, allowing them to focus on different types of relationships simultaneously.
 
-If the dot product ($QK^T$) between a specific Query and a Key results in a very high positive number compared to the other keys, what does that suggest about the connection between those two words?
+If the dot product ($$QK^T$$) between a specific Query and a Key results in a very high positive number compared to the other keys, what does that suggest about the connection between those two words?
 
 ---
 
-In a standard model, a word might be represented by a vector of **512 numbers** (the model dimension, or $d_{model}$). Instead of having one giant mechanism look at all 512 numbers at once, Multi-Head Attention divides that workload.
+In a standard model, a word might be represented by a vector of **512 numbers** (the model dimension, or $$d_{model}$$). Instead of having one giant mechanism look at all 512 numbers at once, Multi-Head Attention divides that workload.
 
-If we use **8 heads**, we don't just cut the list of numbers in half. We use math (linear projections) to "map" that 512-dimensional vector into 8 different 64-dimensional spaces ($512 \div 8 = 64$). 
+If we use **8 heads**, we don't just cut the list of numbers in half. We use math (linear projections) to "map" that 512-dimensional vector into 8 different 64-dimensional spaces ($$512 \div 8 = 64$$). 
 
 ### An Example: "Bank" 🏦🚣
 Imagine the word "**Bank**" is represented by a 12-dimensional vector. We split it into **3 heads**, so each head handles **4 dimensions**.
@@ -54,20 +54,21 @@ Imagine the word "**Bank**" is represented by a 12-dimensional vector. We split 
 ---
 
 ### Why is this better than one big head?
-Each head has its own set of **learned weights** ($W_Q, W_K, W_V$). This allows:
+Each head has its own set of **learned weights** ($$W_Q, W_K, W_V$$). This allows:
 * **Parallelism:** The model checks for "money" and "rivers" at the exact same time. ⚡
 * **Nuance:** In the sentence *"He sat on the river **bank** to deposit his check,"* Head 1 can focus on the check while Head 2 focuses on the river. A single head might get "confused" trying to average those two very different meanings together. 🎭
 
 After all the heads finish their individual calculations, we **concatenate** (glue) their results back together into one final 512-dimensional vector.
 
 
-There isn’t a single "perfect" number of heads for every model; instead, the number of heads ($h$) is a **hyperparameter**—a setting that engineers choose and test before training begins. 
+There isn’t a single "perfect" number of heads for every model; instead, the number of heads ($$h$$) is a **hyperparameter**—a setting that engineers choose and test before training begins. 
 
 The decision involves balancing three main factors:
 
-* **Dimensionality ($d_{model}$):** The number of heads must be a divisor of the total model dimension. If your model uses 512 dimensions and 8 heads, each head gets 64 dimensions to work with ($512 \div 8 = 64$). If you increased to 16 heads, each head would only have 32 dimensions, which might not be enough "room" for a head to learn complex patterns. 📏
+* **Dimensionality ($$d_{model}$$):** The number of heads must be a divisor of the total model dimension. If your model uses 512 dimensions and 8 heads, each head gets 64 dimensions to work with ($$512 \div 8 = 64$$). If you increased to 16 heads, each head would only have 32 dimensions, which might not be enough "room" for a head to learn complex patterns. 📏
 * **Representational Diversity:** More heads allow the model to attend to many different parts of a sequence simultaneously (e.g., one head for syntax, one for pronouns, one for specific verbs). However, research (ablation studies) has shown that after a certain point, adding more heads provides diminishing returns or can even hurt performance. 🎭
 * **Computational Cost:** While the total number of parameters stays roughly the same because we split the original dimension, the overhead of managing many small matrix multiplications can slow down training on certain hardware. ⚡
+  
 ---
 
 BERT's input is actually a combination of three different types of embeddings summed together. If it only used token embeddings, the model would lose crucial information about the structure and order of the text.
@@ -142,35 +143,35 @@ Since BERT uses **learned absolute positional embeddings**, it faces a "hard cei
 # How to Prevent Vanishing Gradients
 
 ## 1. The Variance Problem
-In the attention mechanism, we calculate the scores by taking the dot product of a Query ($Q$) and a Key ($K$):
+In the attention mechanism, we calculate the scores by taking the dot product of a Query ($$Q$$) and a Key ($$K$$):
 
 $$Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
-Assume that the components of $Q$ and $K$ are independent random variables with a mean of **0** and a variance of **1**. When you compute the dot product of two vectors of length $d_k$:
+Assume that the components of $$Q$$ and $$K$$ are independent random variables with a mean of **0** and a variance of **1**. When you compute the dot product of two vectors of length $$d_k$$:
 
 $$q \cdot k = \sum_{i=1}^{d_k} q_i k_i$$
 
-The variance of the resulting sum is the sum of the variances of the individual terms. Therefore, the variance of the dot product is $d_k$. 
+The variance of the resulting sum is the sum of the variances of the individual terms. Therefore, the variance of the dot product is $$d_k$$. 
 
-As the dimensionality ($d_k$) of your keys increases (e.g., to 512 or 1024), the **magnitude** of these dot products can grow quite large, pushing the values far away from zero.
+As the dimensionality ($$d_k$$) of your keys increases (e.g., to 512 or 1024), the **magnitude** of these dot products can grow quite large, pushing the values far away from zero.
 
 
 
 ---
 
 ## 2. The Softmax "Saturating" Effect
-The dot products are passed into a **softmax** function to create a probability distribution. The softmax function for an input vector $z$ is:
+The dot products are passed into a **softmax** function to create a probability distribution. The softmax function for an input vector $$z$$ is:
 
 $$\sigma(z)_i = \frac{e^{z_i}}{\sum e^{z_j}}$$
 
-When the input values ($z_i$) have very high magnitudes and large differences between them, the softmax function acts like a "hard-max." It pushes the largest value toward **1.0** and all other values toward **0.0**.
+When the input values ($$z_i$$) have very high magnitudes and large differences between them, the softmax function acts like a "hard-max." It pushes the largest value toward **1.0** and all other values toward **0.0**.
 
 
 
 ---
 
 ## 3. Vanishing Gradients
-The derivative of the softmax function is proportional to $\sigma(z) \cdot (1 - \sigma(z))$. 
+The derivative of the softmax function is proportional to $$\sigma(z) \cdot (1 - \sigma(z))$$. 
 
 * If the softmax output is near **1** or **0**, the gradient becomes **extremely small** (near zero).
 * During backpropagation, if the gradient of the attention layer is nearly zero, the weights in the earlier layers of the network will not be updated effectively.
@@ -180,10 +181,10 @@ This is the "vanishing gradient" problem: the model stops learning because the o
 ---
 
 ## 4. How Scaling Fixes It
-By dividing the dot product by $\sqrt{d_k}$, we effectively scale the variance of the result back down to **1**. 
+By dividing the dot product by $$\sqrt{d_k}$$, we effectively scale the variance of the result back down to **1**. 
 
-* **Before scaling:** Variance = $d_k$
-* **After scaling:** Variance = $\frac{d_k}{(\sqrt{d_k})^2} = 1$
+* **Before scaling:** Variance = $$d_k$$
+* **After scaling:** Variance = $$\frac{d_k}{(\sqrt{d_k})^2} = 1$$
 
 By keeping the variance constant regardless of the model's internal size, the inputs to the softmax remain in a range where the function is "sensitive" (the slopes are steep). This ensures that gradients remain large enough to propagate through the network, allowing the model to train efficiently even with very large hidden layers.
 
@@ -193,7 +194,7 @@ By keeping the variance constant regardless of the model's internal size, the in
 
 | Feature | Unscaled Attention | Scaled Attention |
 | :--- | :--- | :--- |
-| **Dot Product Variance** | Grows with $d_k$ | Constant (1) |
+| **Dot Product Variance** | Grows with $$d_k$$ | Constant (1) |
 | **Softmax Output** | Sparse (one-hot like) | Distributed/Smooth |
 | **Gradients** | Vanishing (near 0) | Healthy/Informative |
 | **Training Stability** | Poor/Unstable | High |
