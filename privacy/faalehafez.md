@@ -1,3 +1,7 @@
+---
+layout: null
+---
+
 # Privacy Policy — فال حافظ / Faal-e-Hafez
 
 **Effective date:** 05/04/2026
